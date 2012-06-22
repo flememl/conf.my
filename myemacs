@@ -1,0 +1,75 @@
+;;
+;; Flememl
+;;
+
+(setq inhibit-startup-message t)
+;; mode-line conf
+(column-number-mode 1)
+(custom-set-faces '(mode-line ((t (:inverse-video nil)))))
+;; colors
+(set-background-color "black")
+(set-foreground-color "white")
+(set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-9-*-*-*-m-0-iso10646-1")
+;; no menu-bar nor tool-bar nor scroll-bar
+(menu-bar-mode nil)
+(tool-bar-mode nil)
+(scroll-bar-mode nil)
+;; colorization
+(require 'paren) (show-paren-mode t)
+(transient-mark-mode t)
+(setq-default show-trailing-whitespace t)
+;; correct deletion keystroke
+(setq normal-erase-is-backspace-mode t)
+
+;; raccourcis usefull
+(global-set-key [f3] 'c-mode)
+(global-set-key [f4] 'c++-mode)
+(global-set-key [f5] 'ruby-mode)
+(global-set-key [f6] 'compile)
+;; auto c++-mode for h files
+(setq auto-mode-alist
+      (append '(("\.h$" . c++-mode))
+	            auto-mode-alist))
+;; auto xml-mode for xsd files
+(setq auto-mode-alist
+      (append '(("\.xsd$" . xml-mode))
+	            auto-mode-alist))
+
+;; navigation easier
+(global-set-key (kbd "<home>") '(lambda ()
+				    (interactive)
+				      (recenter 0)))
+(global-set-key (kbd "M-m") 'buffer-menu)
+(global-set-key (kbd "M-RET") 'newline)
+(global-set-key (kbd "<M-down>") 'other-window)
+(global-set-key (kbd "<M-up>") '(lambda ()
+                                  (interactive)
+                                  (other-window -1)))
+
+;; language stuff
+(set-terminal-coding-system 'latin-1)
+(set-language-environment 'latin-1)
+(setq default-input-method 'french-postfix)
+
+;; ruby-mode
+(add-to-list 'load-path "~/.emacs.d/")
+(autoload 'ruby-mode "ruby-mode"
+  "Mode for editing ruby source files")
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+(add-hook 'ruby-mode-hook 'turn-on-font-lock)
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
+;; grep in a mercurial project
+(defun grep-project (s)
+  (interactive "sSearch project for: ")
+  (grep-find (concat "grep -rnH -e \"" s "\" `hg root`"))
+  )
+(defun pygrep-project (s)
+  (interactive "sSearch project for (python files only): ")
+  (grep-find (concat "grep --include=*.py -rnH -e \"" s "\" `hg root`"))
+  )
+(defun jsgrep-project (s)
+  (interactive "sSearch project for (javascript files only): ")
+  (grep-find (concat "grep --include=*.js -rnH -e \"" s "\" `hg root`"))
+  )
