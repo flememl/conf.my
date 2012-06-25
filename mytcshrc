@@ -1,0 +1,37 @@
+#!/bin/tcsh
+
+##
+## Flememl
+##
+
+# environnement
+set autolist
+set nobeep
+
+#
+# UNALIAS
+#
+
+unalias emacs
+limit core 5000
+
+#
+# ALIAS
+#
+
+alias l 'ls -l'
+alias la 'ls -la'
+alias e 'emacs -nw'
+
+#
+# SETENV
+#
+
+setenv SVN_EDITOR "emacs -nw"
+setenv PAGER "more"
+
+#
+# AUTRE
+#
+
+umask 77

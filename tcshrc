@@ -1,0 +1,57 @@
+#!/bin/tcsh
+# bocal 2007
+# version 2007020401
+
+# no core dump
+limit coredumpsize 0
+
+# path
+set path=(/{bin,sbin})
+set path=($path /usr/{bin,sbin})
+set path=($path /usr/{pkg,site,local,school,X11R6}/{bin,sbin})
+set path=($path $HOME/{bin,sbin,mbin})
+
+# history
+set history=5000
+set savehist=5000
+
+# environnement
+setenv SHELL "/bin/tcsh"
+setenv TERM "xterm"
+setenv PAGER "less"
+setenv EDITOR "emacs -nw"
+
+set watch=(1 any any)
+
+# completion
+set complete
+set autolist
+set nobeep
+
+# prompt
+if ( $?INSIDE_EMACS ) then
+    set prompt=":: %c :: "
+else
+    set prompt="%B:: %m ::%B "
+    set rprompt="%B:: %c ::%B"
+    alias ls "ls --color=auto"
+    alias grep "grep --color=auto"
+endif
+
+# alias
+alias l "ls -l"
+alias ll "ls -l"
+alias la "ls -la"
+
+alias clean "rm -If *~ ; rm -If .*~"
+
+# cubicweb
+setenv CW_MODE "user"
+setenv CW_CUBES_PATH "/usr/share/cubicweb/cubes:/home/lyren/Documents/CubicWeb/cubes"
+setenv PYTHONPATH "/home/lyren/Documents/Work"
+alias cwc "cubicweb-ctl"
+
+# load your configuration file
+if ( -f $HOME/.mytcshrc ) then
+    source $HOME/.mytcshrc
+endif
