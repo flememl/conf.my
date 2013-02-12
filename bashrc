@@ -115,7 +115,7 @@ export PATH="$PATH:/home/quentin/bin:/var/lib/gems/1.8/bin:/usr/local/go/bin"
 # cubicweb
 export CW_MODE=user
 export CW_CUBES_PATH="/home/quentin/cw/cubes"
-export PYTHONPATH="/lib32:/lib64:/usr/lib64:/usr/lib32:/usr/lib/x86_64-linux-gnu:/home/quentin/cw"
+export PYTHONPATH="/home/quentin/cw:/lib64:/usr/lib64:/usr/lib/x86_64-linux-gnu:$PYTHONPATH"
 alias cwc='cubicweb-ctl'
 alias cdk='cd ~/cw/cubes/ecover'
 alias mq='hg -R /home/quentin/cw/cubes/ecover/.hg/patches'
