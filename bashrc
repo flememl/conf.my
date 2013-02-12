@@ -110,7 +110,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 export EDITOR='emacs -nw'
 export SVN_EDITOR='emacs -nw'
-export PATH="$PATH:/home/quentin/bin:/var/lib/gems/1.8/bin"
+export PATH="$PATH:/home/quentin/bin:/var/lib/gems/1.8/bin:/usr/local/go/bin"
 
 # cubicweb
 export CW_MODE=user
