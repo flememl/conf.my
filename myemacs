@@ -20,6 +20,7 @@
 (setq-default show-trailing-whitespace t)
 ;; correct deletion keystroke
 (setq normal-erase-is-backspace-mode t)
+(setq-default indent-tabs-mode nil)
 
 ;; raccourcis usefull
 (global-set-key [f3] 'c-mode)
@@ -63,6 +64,12 @@
 ;; go-mode
 (add-to-list 'load-path "~/.emacs.d/go-mode-load.el" t)
 (require 'go-mode-load)
+
+;; jshint-mode
+(add-to-list 'load-path "~/.emacs.d/jshint-mode")
+(require 'flymake-jshint)
+(add-hook 'javascript-mode-hook
+     (lambda () (flymake-mode t)))
 
 ;; grep in a mercurial project
 (defun grep-project (s)
