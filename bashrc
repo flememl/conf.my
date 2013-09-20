@@ -83,7 +83,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto -nHRI'
+    alias grep='grep --color=auto -nHI'
     alias fgrep='fgrep --color=auto -nHRI'
     alias egrep='egrep --color=auto -nHRI'
 fi
