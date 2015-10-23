@@ -53,7 +53,7 @@
 (setq default-input-method 'french-postfix)
 
 ;; ruby-mode
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/modes/")
 (autoload 'ruby-mode "ruby-mode"
   "Mode for editing ruby source files")
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
@@ -62,14 +62,19 @@
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
 ;; go-mode
-(add-to-list 'load-path "~/.emacs.d/go-mode-load.el" t)
-(require 'go-mode-load)
+(add-to-list 'load-path "~/.emacs.d/modes/go-mode.el" t)
+(require 'go-mode-autoloads)
 
 ;; jshint-mode
-(add-to-list 'load-path "~/.emacs.d/jshint-mode")
-(require 'flymake-jshint)
-(add-hook 'javascript-mode-hook
-     (lambda () (flymake-mode t)))
+;; (add-to-list 'load-path "~/.emacs.d/jshint-mode")
+;; (require 'flymake-jshint)
+;; (add-hook 'javascript-mode-hook
+;;      (lambda () (flymake-mode t)))
+
+;; yaml-mode
+(add-to-list 'load-path "~/.emacs.d/modes/yaml-mode" t)
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
 ;; grep in a mercurial project
 (defun grep-project (s)

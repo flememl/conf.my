@@ -1,0 +1,6 @@
+[submodule "emacs-modes/yaml-mode"]
+	path = emacs-modes/yaml-mode
+	url = https://github.com/yoshiki/yaml-mode
+[submodule "emacs-modes/go-mode.el"]
+	path = emacs-modes/go-mode.el
+	url = https://github.com/dominikh/go-mode.el

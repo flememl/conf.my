@@ -1,0 +1,1 @@
+../go-mode.el/go-mode.el
