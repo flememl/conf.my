@@ -55,9 +55,9 @@ else
     if [ "$color_prompt" = yes ]; then
 #	PS1='\033[01;30m:: \h:\w ::\033[0m '
 	if [ -n "$debian_chroot" ]; then
-	    PS1=':: ${debian_chroot+\033[01;34m$debian_chroot:\033[0m}\w :: '
+	    PS1=':: ${debian_chroot+\[\e[01;34m$debian_chroot:\e[0m}\]\w :: '
 	else
-	    PS1=':: \033[01;37m\h:\033[0m\w :: '
+	    PS1=':: \[\e[01;37m\]\h:\[\e[0m\]\w :: '
 	fi
     else
 #	PS1=':: \h:\w :: '
