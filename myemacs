@@ -11,16 +11,16 @@
 (set-foreground-color "white")
 (set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-9-*-*-*-m-0-iso10646-1")
 ;; no menu-bar nor tool-bar nor scroll-bar
-(menu-bar-mode nil)
-(tool-bar-mode nil)
-(scroll-bar-mode nil)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 ;; colorization
 (require 'paren) (show-paren-mode t)
 (transient-mark-mode t)
 (setq-default show-trailing-whitespace t)
 ;; correct deletion keystroke
 (setq normal-erase-is-backspace-mode t)
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode -1)
 
 ;; raccourcis usefull
 (global-set-key [f3] 'c-mode)
@@ -88,4 +88,12 @@
 (defun jsgrep-project (s)
   (interactive "sSearch project for (javascript files only): ")
   (grep-find (concat "grep --include=*.js -rnH -e \"" s "\" `hg root`"))
+  )
+
+;; grep in a git project
+(defun ggrep-project (s)
+  (interactive "sSearch project for: ")
+  (setenv "PAGER" "/bin/cat")
+  (cd (substring (shell-command-to-string "git rev-parse --show-toplevel") 0 -1))
+  (grep-find (concat "git grep -niH --untracked -e \"" s "\" -- `git rev-parse --show-toplevel`"))
   )

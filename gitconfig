@@ -1,0 +1,10 @@
+[alias]
+  co = checkout
+  ci = commit
+  st = status -sb
+  d = diff
+  h = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+
+[user]
+  email = quentin@chirp.io
+  name = Quentin R.
