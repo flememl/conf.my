@@ -96,9 +96,6 @@ alias e='emacs'
 alias en='emacs -nw'
 alias clean="rm -If *~ ; rm -If .*~"
 
-# chroot stuff
-alias kk="schroot -c sulfur"
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -125,3 +122,8 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+# Virtualenv Wrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Work
+source $HOME/.local/bin/virtualenvwrapper.sh

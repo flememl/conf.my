@@ -6,6 +6,7 @@
 ;; mode-line conf
 (column-number-mode 1)
 (custom-set-faces '(mode-line ((t (:inverse-video nil)))))
+(electric-indent-mode -1)
 ;; colors
 (set-background-color "black")
 (set-foreground-color "white")
