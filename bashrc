@@ -94,7 +94,9 @@ alias la='ls -la'
 alias l='ls -l'
 alias e='emacs'
 alias en='emacs -nw'
+alias ne='emacs -nw'
 alias clean="rm -If *~ ; rm -If .*~"
+alias wifi='nmtui'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
