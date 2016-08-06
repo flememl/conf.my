@@ -3,31 +3,45 @@
 ;;
 
 (setq inhibit-startup-message t)
+
 ;; mode-line conf
-(column-number-mode 1)
-(custom-set-faces '(mode-line ((t (:inverse-video nil)))))
-(electric-indent-mode -1)
+(custom-set-variables
+ '(column-number-mode t)
+ '(show-paren-mode t))
+(custom-set-faces
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 83 :width normal))))
+ '(mode-line ((t (:inverse-video nil))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "black" :foreground "dark gray")))))
+
 ;; colors
 (set-background-color "black")
 (set-foreground-color "white")
-(set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-9-*-*-*-m-0-iso10646-1")
+
 ;; no menu-bar nor tool-bar nor scroll-bar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+
 ;; colorization
 (require 'paren) (show-paren-mode t)
 (transient-mark-mode t)
 (setq-default show-trailing-whitespace t)
+
 ;; correct deletion keystroke
 (setq normal-erase-is-backspace-mode t)
-(setq-default indent-tabs-mode -1)
 
-;; raccourcis usefull
+;; indentation
+(electric-indent-mode nil)
+(setq-default
+ tab-width 4
+ indent-tabs-mode nil)
+
+;; useful shortcuts
 (global-set-key [f3] 'c-mode)
 (global-set-key [f4] 'c++-mode)
 (global-set-key [f5] 'ruby-mode)
 (global-set-key [f6] 'compile)
+
 ;; auto c++-mode for h files
 (setq auto-mode-alist
       (append '(("\.h$" . c++-mode))
@@ -38,9 +52,6 @@
 	            auto-mode-alist))
 
 ;; navigation easier
-(global-set-key (kbd "<home>") '(lambda ()
-				    (interactive)
-				      (recenter 0)))
 (global-set-key (kbd "M-m") 'buffer-menu)
 (global-set-key (kbd "M-RET") 'newline)
 (global-set-key (kbd "<M-down>") 'other-window)
@@ -53,6 +64,11 @@
 (set-language-environment 'latin-1)
 (setq default-input-method 'french-postfix)
 
+;; c-mode
+(setq-default
+ c-basic-offset 4
+ c-default-style "linux")
+
 ;; ruby-mode
 (add-to-list 'load-path "~/.emacs.d/modes/")
 (autoload 'ruby-mode "ruby-mode"
@@ -63,14 +79,18 @@
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
 ;; go-mode
+(setq exec-path (append exec-path '("/usr/local/go/bin")))
 (add-to-list 'load-path "~/.emacs.d/modes/go-mode.el" t)
 (require 'go-mode-autoloads)
+(add-hook 'before-save-hook #'gofmt-before-save)
+;; go-mode will force use of tabs
+(setq-default indent-tabs-mode nil)
 
 ;; jshint-mode
- (add-to-list 'load-path "~/.emacs.d/modes/jshint-mode")
- (require 'flymake-jshint)
- (add-hook 'javascript-mode-hook
-      (lambda () (flymake-mode t)))
+; (add-to-list 'load-path "~/.emacs.d/modes/jshint-mode")
+; (require 'flymake-jshint)
+; (add-hook 'javascript-mode-hook
+;      (lambda () (flymake-mode t)))
 
  ;; (add-to-list 'load-path "~/.emacs.d/modes")
  ;; (require 'flymake-easy)
