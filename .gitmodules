@@ -4,3 +4,12 @@
 [submodule "emacs-modes/go-mode.el"]
 	path = emacs-modes/go-mode.el
 	url = https://github.com/dominikh/go-mode.el
+[submodule "emacs-modes/flymake-jslint"]
+	path = emacs-modes/flymake-jslint
+	url = git@github.com:purcell/flymake-jslint.git
+[submodule "emacs-modes/flymake-easy"]
+	path = emacs-modes/flymake-easy
+	url = git@github.com:purcell/flymake-easy.git
+[submodule "emacs-modes/jshint-mode"]
+	path = emacs-modes/jshint-mode
+	url = git://github.com/daleharvey/jshint-mode.git

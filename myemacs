@@ -67,10 +67,15 @@
 (require 'go-mode-autoloads)
 
 ;; jshint-mode
-;; (add-to-list 'load-path "~/.emacs.d/jshint-mode")
-;; (require 'flymake-jshint)
-;; (add-hook 'javascript-mode-hook
-;;      (lambda () (flymake-mode t)))
+ (add-to-list 'load-path "~/.emacs.d/modes/jshint-mode")
+ (require 'flymake-jshint)
+ (add-hook 'javascript-mode-hook
+      (lambda () (flymake-mode t)))
+
+ ;; (add-to-list 'load-path "~/.emacs.d/modes")
+ ;; (require 'flymake-easy)
+ ;; (require 'flymake-jslint)
+ ;; (add-hook 'js-mode-hook 'flymake-jslint-load)
 
 ;; yaml-mode
 (add-to-list 'load-path "~/.emacs.d/modes/yaml-mode" t)
