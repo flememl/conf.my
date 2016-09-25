@@ -129,3 +129,6 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Work
 source $HOME/.local/bin/virtualenvwrapper.sh
+source /opt/ros/kinetic/setup.bash
+export ROS_MASTER_URI=http://192.168.0.78:11311
+export ROS_HOSTNAME=192.168.0.31

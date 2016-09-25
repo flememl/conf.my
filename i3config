@@ -175,8 +175,9 @@ client.unfocused        #000000 #000000 #888888 #292d2e #222222
 client.urgent           #2f343a #900000 #ffffff #900000 #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
 
-# set screens
-bindsym $mod+Shift+s exec --no-startup-id xrandr --output HDMI1 --rate 60.0 --mode 1680x1050 --rotate left
+# Set screens
+bindsym $mod+Shift+s exec --no-startup-id xrandr --output HDMI1 --rate 60.0 --mode 1680x1050 --rotate left --right-of eDP1
+bindsym $mod+Shift+a exec --no-startup-id xrandr --output HDMI1 --off
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
@@ -186,6 +187,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+
+# Screenshot
+bindsym Print exec gnome-screenshot -i
 
 # # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad

@@ -9,7 +9,7 @@
  '(column-number-mode t)
  '(show-paren-mode t))
 (custom-set-faces
- '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 83 :width normal))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 75 :width normal))))
  '(mode-line ((t (:inverse-video nil))))
  '(mode-line-inactive ((t (:inherit mode-line :background "black" :foreground "dark gray")))))
 
@@ -55,9 +55,13 @@
 (global-set-key (kbd "M-m") 'buffer-menu)
 (global-set-key (kbd "M-RET") 'newline)
 (global-set-key (kbd "<M-down>") 'other-window)
+(global-set-key (kbd "ESC <down>") 'other-window)
 (global-set-key (kbd "<M-up>") '(lambda ()
                                   (interactive)
                                   (other-window -1)))
+(global-set-key (kbd "ESC <up>") '(lambda ()
+                                    (interactive)
+                                    (other-window -1)))
 
 ;; language stuff
 (set-terminal-coding-system 'latin-1)
