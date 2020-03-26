@@ -2,9 +2,10 @@
 
 git submodule update --init --recursive
 mkdir -p ~/.emacs.d
-ln -fs ~/Public/conf.my/bashrc ~/.bashrc
-ln -fs ~/Public/conf.my/gitconfig ~/.gitconfig
-ln -fs ~/Public/conf.my/emacs ~/.emacs
-ln -fs ~/Public/conf.my/myemacs ~/.myemacs
-ln -fs ~/Public/conf.my/emacs-modes/modes ~/.emacs.d/
-ln -fs ~/Public/conf.my/i3config ~/.config/i3/config
+current_path=$(pwd)
+ln -fs $current_path/bashrc ~/.bashrc
+ln -fs $current_path/gitconfig ~/.gitconfig
+ln -fs $current_path/emacs ~/.emacs
+ln -fs $current_path/myemacs ~/.myemacs
+ln -fs $current_path/emacs-modes/modes ~/.emacs.d/
+# ln -fs $current_path/i3config ~/.config/i3/config
